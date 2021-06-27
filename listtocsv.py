@@ -30,7 +30,7 @@ for result in toCSV:
         with io.TextIOWrapper(output, encoding='utf-8') as encode:
             encode.write(epic_record + '\n')
 
-# a_file = gzip.open(hostname + "tesfile.csv.gz", "rb")
-# contents = a_file.read()
+a_file = gzip.open(hostname + "tesfile.csv.gz", "rb")
+contents = a_file.read()
 
-# print(contents)
+print(contents)
