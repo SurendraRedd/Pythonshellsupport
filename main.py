@@ -40,7 +40,7 @@ def parseJson():
     output_file = open('./gdcs_deployment.txt', "w")
     try:
         # Provide the file path
-        r = open('C:/Users/surredd/Downloads/daily_dump_dcpp_2021_06_22_16_58_53.json', 'r')
+        r = open('C:/Users/surredd/Downloads/new.json', 'r')
         rf = r.read()
         # print("print rf data",rf
         global json_data
@@ -54,8 +54,10 @@ def parseJson():
         row = []
         for col in attributes.split(','):
             if col in list and list[col]:
-                # if col == 'DEVICE_COUNTS' or col == 'CABINET_COUNT':
-                #     print('found values')
+                if col == 'CST_LATEST_COMMENTS':
+                    val = list[col]
+                    dataToAppend = val.split()[5][7:] + ' ' + val.split()[6]
+                    row.append(clean(str(dataToAppend)))
                 row.append(clean(str(list[col])))
             else:
                 row.append("")
