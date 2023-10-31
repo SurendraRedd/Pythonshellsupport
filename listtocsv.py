@@ -34,7 +34,7 @@ import io
 keyValue = toCSV[0].keys()
 hostname = toCSV[0]['host'].split('.')[0]
 
-file_name = hostname + "tesfile.csv.gz"
+file_name = f"{hostname}tesfile.csv.gz"
 for result in toCSV:
     epic_record = ','.join(str(x) for x in result.values())
     with gzip.open(file_name,'ab') as output:

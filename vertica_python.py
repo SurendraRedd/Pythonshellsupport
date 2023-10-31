@@ -9,7 +9,11 @@ warnings.filterwarnings("ignore")
 # Return Parantere: None
 #===========================================================================================================#
 def log_info(logmsg):
-  print (date.strftime(datetime.now(),"%Y-%m-%d %H:%M:%S") + " : Info : %s"%(logmsg), file = fh)
+  print(
+      date.strftime(datetime.now(), "%Y-%m-%d %H:%M:%S") +
+      f" : Info : {logmsg}",
+      file=fh,
+  )
 #===========================================================================================================#
 # Function Name: get_env_variables
 # Purpose: Set Global Variables, and import environment and config parameters
@@ -68,10 +72,10 @@ def main():
     df1 = df.groupby(['ID']).agg(','.join)
     msg = "Exporting Dataframe with consolidated contact details for assets into a file which can be loaded into Vertica using COPY commands"
     log_info(msg)
-    df1.to_csv('%s/owner_contact_info.txt'%(INPUT_DIR),sep='\t')
+    df1.to_csv(f'{INPUT_DIR}/owner_contact_info.txt', sep='\t')
   except Exception as E1:
     log_info(E1)
-    sys.exit("Error while " + msg)
+    sys.exit(f"Error while {msg}")
 
 
 if __name__ == '__main__':
